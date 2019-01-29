@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+}
+
+group 'com.wat'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile project(':core')
+    compile group: 'org.springframework', name: 'spring-webmvc', version: '5.1.1.RELEASE'
+    compile group: 'org.hibernate.validator', name: 'hibernate-validator', version: '6.0.13.Final'
+    compile group: 'org.glassfish', name: 'javax.el', version: '3.0.0'
+
+    compileOnly group: 'org.mapstruct', name: 'mapstruct', version: '1.2.0.Final'
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}

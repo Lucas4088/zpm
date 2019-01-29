@@ -1,0 +1,63 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.5.RELEASE")
+    }
+}
+
+plugins {
+    id 'java'
+    id 'idea'
+    id 'org.springframework.boot' version "2.1.0.RELEASE"
+    id 'io.spring.dependency-management' version "1.0.6.RELEASE"
+    id 'net.ltgt.apt' version '0.9'
+}
+
+group 'com.wat'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile project(':core')
+    compile project(':model')
+    compile project(':rest')
+    compile project(':repository')
+
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.1.0.RELEASE'
+    compile group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
+
+    compile "org.mapstruct:mapstruct-jdk8:1.2.0.Final"
+    apt "org.mapstruct:mapstruct-processor:1.2.0.Final"
+    compile "org.projectlombok:lombok:1.18.4"
+    apt "org.projectlombok:lombok:1.18.4"
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+
+allprojects {
+
+    apply plugin: 'net.ltgt.apt'
+    apply plugin: "java"
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        compileOnly 'org.projectlombok:lombok:1.18.2'
+        compile group: 'org.springframework', name: 'spring-context', version: '5.1.1.RELEASE'
+        compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.1.0.RELEASE'
+
+        compile "org.mapstruct:mapstruct-jdk8:1.2.0.Final"
+        compile "org.mapstruct:mapstruct-processor:1.2.0.Final"
+        compile "org.projectlombok:lombok:1.18.4"
+    }
+}

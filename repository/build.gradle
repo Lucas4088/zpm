@@ -1,0 +1,13 @@
+plugins {
+    id 'net.ltgt.apt'
+}
+
+dependencies {
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.1.0.RELEASE'
+    compile group: 'org.hibernate', name: 'hibernate-core', version: '5.3.7.Final'
+    compile 'mysql:mysql-connector-java:8.0.13'
+    compile 'org.flywaydb:flyway-core:5.2.4'
+
+    compile project(":model")
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}

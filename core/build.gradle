@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+    id 'groovy'
+}
+
+group 'com.wat'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile project(":model")
+    compile project(":repository")
+    compile ('org.springframework.boot:spring-boot-starter-web')
+    implementation('org.springframework.kafka:spring-kafka:2.2.2.RELEASE')
+    compile group: 'org.springframework.security', name: 'spring-security-core', version: '5.1.1.RELEASE'
+
+    testCompile group: 'org.spockframework', name: 'spock-core', version: '1.2-groovy-2.5'
+    testCompile group: 'org.spockframework', name: 'spock-spring', version: '1.2-groovy-2.5'
+    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.1.1.RELEASE'
+    testCompile group: 'org.codehaus.groovy', name: 'groovy-all', version: '2.5.5', ext: 'pom'
+
+
+}
